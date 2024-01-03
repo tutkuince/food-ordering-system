@@ -45,6 +45,6 @@ public class OrderTestConfiguration {
 
     @Bean
     public OrderDomainService orderDomainService() {
-        return Mockito.mock(OrderDomainService.class);
+        return new OrderDomainServiceImpl();
     }
 }
