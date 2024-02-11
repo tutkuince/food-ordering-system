@@ -7,3 +7,6 @@ Microservices with Clean and Hexagonal architectures, DDD, SAGA, Outbox, CQRS, K
 
 ## Visualize The Module Dependecy on Order Service
 ![image](https://github.com/tutkuince/food-ordering-system/assets/33215575/5e7a2c2e-1eaf-4f77-8c79-cdd3250b1da8)
+
+## Designing Order Service Domain Logic Components
+![image](https://github.com/tutkuince/food-ordering-system/assets/33215575/98d4c84a-d4c5-487f-883d-837ea8f1bf7a)
