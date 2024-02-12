@@ -10,3 +10,7 @@ Microservices with Clean and Hexagonal architectures, DDD, SAGA, Outbox, CQRS, K
 
 ## Designing Order Service Domain Logic Components
 ![image](https://github.com/tutkuince/food-ordering-system/assets/33215575/98d4c84a-d4c5-487f-883d-837ea8f1bf7a)
+
+## Order State Transitions
+![image](https://github.com/tutkuince/food-ordering-system/assets/33215575/2ddde94b-108b-4397-9ec5-05967c373402)
+
