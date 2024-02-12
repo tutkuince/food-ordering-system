@@ -12,4 +12,5 @@ Microservices with Clean and Hexagonal architectures, DDD, SAGA, Outbox, CQRS, K
 ![image](https://github.com/tutkuince/food-ordering-system/assets/33215575/98d4c84a-d4c5-487f-883d-837ea8f1bf7a)
 
 ## Order State Transitions
-![image](https://github.com/tutkuince/food-ordering-system/assets/33215575/5d39478d-478b-42d2-ab33-f707c09b7163)
+![image](https://github.com/tutkuince/food-ordering-system/assets/33215575/2ddde94b-108b-4397-9ec5-05967c373402)
+
