@@ -45,7 +45,7 @@ public class CreditHistory extends BaseEntity<CreditHistoryId> {
         }
 
         public Builder creditHistoryId(CreditHistoryId val) {
-            id = val;
+            creditHistoryId = val;
             return this;
         }
 
