@@ -40,7 +40,7 @@ public class Restaurant extends AggregateRoot<RestaurantId> {
                 .orderApprovalStatus(orderApprovalStatus)
                 .build();
     }
-    
+
     public void setActive(boolean active) {
         this.active = active;
     }
