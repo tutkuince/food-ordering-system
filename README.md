@@ -14,3 +14,9 @@ Microservices with Clean and Hexagonal architectures, DDD, SAGA, Outbox, CQRS, K
 ## Order State Transitions
 ![image](https://github.com/tutkuince/food-ordering-system/assets/33215575/2ddde94b-108b-4397-9ec5-05967c373402)
 
+## SAGA Pattern 
+SAGA: Distributed long running transactions across services. Used for Long Lived Transactions (LLT).  First invented in a publication on 1987
+- Chain of local ACID transactions to finalise a long running transaction across services.
+- Compensating transactions: Rollback in case of failure
+- Saga Step interface
+![image](https://github.com/tutkuince/food-ordering-system/assets/33215575/da46f6e4-71b2-494b-b42e-7958f3782bfd)
