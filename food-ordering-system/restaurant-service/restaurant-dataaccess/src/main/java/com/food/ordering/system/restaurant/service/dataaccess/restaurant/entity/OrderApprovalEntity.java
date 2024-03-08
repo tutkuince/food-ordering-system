@@ -14,6 +14,7 @@ import java.util.UUID;
 @Table(name = "order_approval", schema = "restaurant")
 @Entity
 public class OrderApprovalEntity {
+
     @Id
     private UUID id;
     private UUID restaurantId;

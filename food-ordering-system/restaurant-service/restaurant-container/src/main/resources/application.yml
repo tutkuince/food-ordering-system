@@ -8,8 +8,6 @@ logging:
 restaurant-service:
   restaurant-approval-request-topic-name: restaurant-approval-request
   restaurant-approval-response-topic-name: restaurant-approval-response
-  outbox-scheduler-fixed-rate: 10000
-  outbox-scheduler-initial-delay: 10000
 
 spring:
   jpa:
@@ -22,7 +20,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres?currentSchema=restaurant&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
     username: postgres
-    password: admin
+    password: 112358
     driver-class-name: org.postgresql.Driver
     platform: postgres
     schema: classpath:init-schema.sql
@@ -39,7 +37,7 @@ kafka-config:
 kafka-producer-config:
   key-serializer-class: org.apache.kafka.common.serialization.StringSerializer
   value-serializer-class: io.confluent.kafka.serializers.KafkaAvroSerializer
-  compression-type: none
+  compression-type: snappy
   acks: all
   batch-size: 16384
   batch-size-boost-factor: 100

@@ -2,7 +2,6 @@ package com.food.ordering.system.restaurant.service.messaging.listener.kafka;
 
 import com.food.ordering.system.kafka.consumer.KafkaConsumer;
 import com.food.ordering.system.kafka.order.avro.model.RestaurantApprovalRequestAvroModel;
-import com.food.ordering.system.restaurant.service.domain.exception.RestaurantNotFoundException;
 import com.food.ordering.system.restaurant.service.domain.ports.input.message.listener.RestaurantApprovalRequestMessageListener;
 import com.food.ordering.system.restaurant.service.messaging.mapper.RestaurantMessagingDataMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -44,16 +43,9 @@ public class RestaurantApprovalRequestKafkaListener implements KafkaConsumer<Res
                 offsets.toString());
 
         messages.forEach(restaurantApprovalRequestAvroModel -> {
-            try {
-                log.info("Processing order approval for order id: {}", restaurantApprovalRequestAvroModel.getOrderId());
-                restaurantApprovalRequestMessageListener.approveOrder(restaurantMessagingDataMapper.
-                        restaurantApprovalRequestAvroModelToRestaurantApproval(restaurantApprovalRequestAvroModel));
-            } catch (RestaurantNotFoundException e) {
-                //NO-OP for RestaurantNotFoundException
-                log.error("No restaurant found for restaurant id: {}, and order id: {}",
-                        restaurantApprovalRequestAvroModel.getRestaurantId(),
-                        restaurantApprovalRequestAvroModel.getOrderId());
-            }
+            log.info("Processing order approval for order id: {}", restaurantApprovalRequestAvroModel.getOrderId());
+            restaurantApprovalRequestMessageListener.approveOrder(restaurantMessagingDataMapper.
+                    restaurantApprovalRequestAvroModelToRestaurantApproval(restaurantApprovalRequestAvroModel));
         });
     }
 

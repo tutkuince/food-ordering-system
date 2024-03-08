@@ -16,16 +16,16 @@ import java.util.stream.Collectors;
 @Component
 public class RestaurantDataMapper {
     public Restaurant restaurantApprovalRequestToRestaurant(RestaurantApprovalRequest
-                                                                    restaurantApprovalRequest) {
-        return Restaurant.Builder.builder()
+                                                                             restaurantApprovalRequest) {
+        return Restaurant.builder()
                 .restaurantId(new RestaurantId(UUID.fromString(restaurantApprovalRequest.getRestaurantId())))
-                .orderDetail(OrderDetail.Builder.builder()
+                .orderDetail(OrderDetail.builder()
                         .orderId(new OrderId(UUID.fromString(restaurantApprovalRequest.getOrderId())))
                         .products(restaurantApprovalRequest.getProducts().stream().map(
-                                        product -> Product.Builder.builder()
-                                                .productId(product.getId())
-                                                .quantity(product.getQuantity())
-                                                .build())
+                                product -> Product.builder()
+                                        .productId(product.getId())
+                                        .quantity(product.getQuantity())
+                                        .build())
                                 .collect(Collectors.toList()))
                         .totalAmount(new Money(restaurantApprovalRequest.getPrice()))
                         .orderStatus(OrderStatus.valueOf(restaurantApprovalRequest.getRestaurantOrderStatus().name()))
