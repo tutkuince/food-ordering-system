@@ -20,3 +20,10 @@ SAGA: Distributed long running transactions across services. Used for Long Lived
 - Compensating transactions: Rollback in case of failure
 - Saga Step interface
 ![image](https://github.com/tutkuince/food-ordering-system/assets/33215575/da46f6e4-71b2-494b-b42e-7958f3782bfd)
+
+## Outbox Pattern
+Outbox: Help use of local ACID transactions to let consistent (eventual) distributed transactions.
+It will complete SAGA in a safe and consistent way.
+Persist events in local database automatically with ACID transaction
+Read the events and publish
+![image](https://github.com/tutkuince/food-ordering-system/assets/33215575/99a45587-1135-41fa-997a-0fe8fedeeacb)
