@@ -1,6 +1,5 @@
 package com.food.ordering.system.payment.service.dataaccess.creditentry.entity;
 
-
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -18,6 +17,7 @@ import java.util.UUID;
 @Table(name = "credit_entry")
 @Entity
 public class CreditEntryEntity {
+
     @Id
     private UUID id;
     private UUID customerId;
@@ -28,7 +28,7 @@ public class CreditEntryEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CreditEntryEntity that = (CreditEntryEntity) o;
-        return Objects.equals(id, that.id);
+        return id.equals(that.id);
     }
 
     @Override

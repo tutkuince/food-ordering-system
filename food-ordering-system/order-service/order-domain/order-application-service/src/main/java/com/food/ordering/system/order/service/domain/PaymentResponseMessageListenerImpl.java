@@ -10,8 +10,8 @@ import org.springframework.validation.annotation.Validated;
 import static com.food.ordering.system.order.service.domain.entity.Order.FAILURE_MESSAGE_DELIMITER;
 
 @Slf4j
-@Service
 @Validated
+@Service
 public class PaymentResponseMessageListenerImpl implements PaymentResponseMessageListener {
 
     private final OrderPaymentSaga orderPaymentSaga;

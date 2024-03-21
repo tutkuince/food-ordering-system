@@ -6,6 +6,7 @@ import com.food.ordering.system.domain.valueobject.Money;
 import com.food.ordering.system.payment.service.domain.valueobject.CreditEntryId;
 
 public class CreditEntry extends BaseEntity<CreditEntryId> {
+
     private final CustomerId customerId;
     private Money totalCreditAmount;
 
@@ -23,6 +24,11 @@ public class CreditEntry extends BaseEntity<CreditEntryId> {
         totalCreditAmount = builder.totalCreditAmount;
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
+
     public CustomerId getCustomerId() {
         return customerId;
     }
@@ -37,10 +43,6 @@ public class CreditEntry extends BaseEntity<CreditEntryId> {
         private Money totalCreditAmount;
 
         private Builder() {
-        }
-
-        public static Builder builder() {
-            return new Builder();
         }
 
         public Builder creditEntryId(CreditEntryId val) {

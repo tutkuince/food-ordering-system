@@ -21,9 +21,10 @@ public class RestaurantApprovalOutboxScheduler implements OutboxScheduler {
     private final ApprovalOutboxHelper approvalOutboxHelper;
     private final RestaurantApprovalRequestMessagePublisher restaurantApprovalRequestMessagePublisher;
 
-    public RestaurantApprovalOutboxScheduler(
-            ApprovalOutboxHelper approvalOutboxHelper,
-            RestaurantApprovalRequestMessagePublisher restaurantApprovalRequestMessagePublisher) {
+    public RestaurantApprovalOutboxScheduler(ApprovalOutboxHelper
+                                                     approvalOutboxHelper,
+                                             RestaurantApprovalRequestMessagePublisher
+                                                     restaurantApprovalRequestMessagePublisher) {
         this.approvalOutboxHelper = approvalOutboxHelper;
         this.restaurantApprovalRequestMessagePublisher = restaurantApprovalRequestMessagePublisher;
     }
@@ -33,12 +34,11 @@ public class RestaurantApprovalOutboxScheduler implements OutboxScheduler {
     @Scheduled(fixedDelayString = "${order-service.outbox-scheduler-fixed-rate}",
             initialDelayString = "${order-service.outbox-scheduler-initial-delay}")
     public void processOutboxMessage() {
-        Optional<List<OrderApprovalOutboxMessage>> outboxMessagesResponse = approvalOutboxHelper
-                .getApprovalOutboxMessageByOutboxStatusAndSagaStatus(
+        Optional<List<OrderApprovalOutboxMessage>> outboxMessagesResponse =
+                approvalOutboxHelper.getApprovalOutboxMessageByOutboxStatusAndSagaStatus(
                         OutboxStatus.STARTED,
-                        SagaStatus.PROCESSING
-                );
-        if (outboxMessagesResponse.isPresent() && !outboxMessagesResponse.get().isEmpty()) {
+                        SagaStatus.PROCESSING);
+        if (outboxMessagesResponse.isPresent() && outboxMessagesResponse.get().size() > 0) {
             List<OrderApprovalOutboxMessage> outboxMessages = outboxMessagesResponse.get();
             log.info("Received {} OrderApprovalOutboxMessage with ids: {}, sending to message bus!",
                     outboxMessages.size(),

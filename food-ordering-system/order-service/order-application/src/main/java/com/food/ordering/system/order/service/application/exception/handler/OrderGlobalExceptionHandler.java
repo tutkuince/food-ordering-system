@@ -11,17 +11,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import javax.validation.ValidationException;
-
 @Slf4j
 @ControllerAdvice
 public class OrderGlobalExceptionHandler extends GlobalExceptionHandler {
 
     @ResponseBody
-    @ExceptionHandler(value = { OrderDomainException.class })
+    @ExceptionHandler(value = {OrderDomainException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorDTO handleException(OrderDomainException orderDomainException) {
-        log.info(orderDomainException.getMessage(), orderDomainException);
+        log.error(orderDomainException.getMessage(), orderDomainException);
         return ErrorDTO.builder()
                 .code(HttpStatus.BAD_REQUEST.getReasonPhrase())
                 .message(orderDomainException.getMessage())
@@ -29,10 +27,10 @@ public class OrderGlobalExceptionHandler extends GlobalExceptionHandler {
     }
 
     @ResponseBody
-    @ExceptionHandler(value = { OrderNotFoundException.class })
+    @ExceptionHandler(value = {OrderNotFoundException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorDTO handleException(OrderNotFoundException orderNotFoundException) {
-        log.info(orderNotFoundException.getMessage(), orderNotFoundException);
+        log.error(orderNotFoundException.getMessage(), orderNotFoundException);
         return ErrorDTO.builder()
                 .code(HttpStatus.NOT_FOUND.getReasonPhrase())
                 .message(orderNotFoundException.getMessage())

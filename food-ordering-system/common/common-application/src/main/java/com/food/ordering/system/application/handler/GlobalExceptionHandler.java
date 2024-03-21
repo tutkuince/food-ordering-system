@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandler {
 
     @ResponseBody
-    @ExceptionHandler(value = { Exception.class })
+    @ExceptionHandler(value = {Exception.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorDTO handleException(Exception exception) {
         log.error(exception.getMessage(), exception);
@@ -28,32 +28,33 @@ public class GlobalExceptionHandler {
     }
 
     @ResponseBody
-    @ExceptionHandler(value = { ValidationException.class })
+    @ExceptionHandler(value = {ValidationException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorDTO handleException(ValidationException validationException) {
-        ErrorDTO errorDTO;
-        if (validationException instanceof ConstraintViolationException) {
-            String violations = extractViolationsFromExceptions((ConstraintViolationException) validationException);
-            log.error(violations, validationException);
-            errorDTO = ErrorDTO.builder()
-                    .code(HttpStatus.BAD_REQUEST.getReasonPhrase())
-                    .message(violations)
-                    .build();
-        } else {
-            String exceptionMessages = validationException.getMessage();
-            log.error(exceptionMessages, validationException);
-            errorDTO = ErrorDTO.builder()
-                    .code(HttpStatus.BAD_REQUEST.getReasonPhrase())
-                    .message(exceptionMessages)
-                    .build();
-        }
-        return errorDTO;
+       ErrorDTO errorDTO;
+       if (validationException instanceof ConstraintViolationException) {
+           String violations = extractViolationsFromException((ConstraintViolationException) validationException);
+           log.error(violations, validationException);
+           errorDTO = ErrorDTO.builder()
+                   .code(HttpStatus.BAD_REQUEST.getReasonPhrase())
+                   .message(violations)
+                   .build();
+       } else {
+           String exceptionMessage = validationException.getMessage();
+           log.error(exceptionMessage, validationException);
+           errorDTO = ErrorDTO.builder()
+                   .code(HttpStatus.BAD_REQUEST.getReasonPhrase())
+                   .message(exceptionMessage)
+                   .build();
+       }
+       return errorDTO;
     }
 
-    private String extractViolationsFromExceptions(ConstraintViolationException validationException) {
+    private String extractViolationsFromException(ConstraintViolationException validationException) {
         return validationException.getConstraintViolations()
                 .stream()
                 .map(ConstraintViolation::getMessage)
                 .collect(Collectors.joining("--"));
     }
+
 }

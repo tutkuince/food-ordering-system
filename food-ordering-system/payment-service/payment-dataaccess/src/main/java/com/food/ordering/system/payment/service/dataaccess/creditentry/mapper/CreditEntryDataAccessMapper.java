@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class CreditEntryDataAccessMapper {
 
     public CreditEntry creditEntryEntityToCreditEntry(CreditEntryEntity creditEntryEntity) {
-        return CreditEntry.Builder.builder()
+        return CreditEntry.builder()
                 .creditEntryId(new CreditEntryId(creditEntryEntity.getId()))
                 .customerId(new CustomerId(creditEntryEntity.getCustomerId()))
                 .totalCreditAmount(new Money(creditEntryEntity.getTotalCreditAmount()))
@@ -25,4 +25,5 @@ public class CreditEntryDataAccessMapper {
                 .totalCreditAmount(creditEntry.getTotalCreditAmount().getAmount())
                 .build();
     }
+
 }

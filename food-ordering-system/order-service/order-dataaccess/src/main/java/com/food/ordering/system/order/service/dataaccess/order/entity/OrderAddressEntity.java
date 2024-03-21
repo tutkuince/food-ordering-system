@@ -16,20 +16,21 @@ import java.util.UUID;
 public class OrderAddressEntity {
     @Id
     private UUID id;
-    private String street;
-    private String postalCode;
-    private String city;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ORDER_ID")
     private OrderEntity order;
+
+    private String street;
+    private String postalCode;
+    private String city;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderAddressEntity that = (OrderAddressEntity) o;
-        return Objects.equals(id, that.id);
+        return id.equals(that.id);
     }
 
     @Override
