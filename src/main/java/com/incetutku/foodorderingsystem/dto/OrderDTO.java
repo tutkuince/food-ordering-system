@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.Objects;
 import java.util.Set;
 
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class OrderDTO {
     private Long id;
     private String orderTime;
