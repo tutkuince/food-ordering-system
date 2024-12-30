@@ -2,6 +2,7 @@ package com.incetutku.foodorderingsystem.service;
 
 import com.incetutku.foodorderingsystem.dto.CuisineDTO;
 import com.incetutku.foodorderingsystem.dto.DessertDTO;
+import com.incetutku.foodorderingsystem.dto.DrinkDTO;
 import com.incetutku.foodorderingsystem.dto.MainCourseDTO;
 import com.incetutku.foodorderingsystem.entity.Drink;
 import com.incetutku.foodorderingsystem.repository.DrinkRepository;
@@ -18,16 +19,16 @@ public class DatabaseInitializer {
     private final CuisineService cuisineService;
     private final DessertService dessertService;
     private final MainCourseService mainCourseService;
-    private final DrinkRepository drinkRepository;
+    private final DrinkService drinkService;
 
     public DatabaseInitializer(CuisineService cuisineService,
                                DessertService dessertService,
                                MainCourseService mainCourseService,
-                               DrinkRepository drinkRepository) {
+                               DrinkService drinkService) {
         this.cuisineService = cuisineService;
         this.dessertService = dessertService;
         this.mainCourseService = mainCourseService;
-        this.drinkRepository = drinkRepository;
+        this.drinkService = drinkService;
     }
 
     public void init() {
@@ -90,13 +91,12 @@ public class DatabaseInitializer {
 
     private void createDrinks() {
         List<Drink> drinks = new ArrayList<>();
-        drinks.add(new Drink("Cola", 2.00, true, true));
-        drinks.add(new Drink("Iced Tea", 2.50, true, true));
-        drinks.add(new Drink("Orange Juice", 3.00, true, false));
-        drinks.add(new Drink("Mineral Water", 1.50, true, true));
-        drinks.add(new Drink("Hot Coffee", 2.00, false, false));
-        drinks.add(new Drink("Milkshake", 4.00, false, false));
 
-        drinkRepository.saveAll(drinks);
+        drinkService.save(new DrinkDTO("Cola", 2.00, true, true));
+        drinkService.save(new DrinkDTO("Iced Tea", 2.50, true, true));
+        drinkService.save(new DrinkDTO("Orange Juice", 3.00, true, false));
+        drinkService.save(new DrinkDTO("Mineral Water", 1.50, true, true));
+        drinkService.save(new DrinkDTO("Hot Coffee", 2.00, false, false));
+        drinkService.save(new DrinkDTO("Milkshake", 4.00, false, false));
     }
 }

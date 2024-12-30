@@ -9,6 +9,24 @@ public class DrinkDTO {
     private boolean addIce;
     private boolean addLemon;
 
+    public DrinkDTO() {
+    }
+
+    public DrinkDTO(String name, double price, boolean addIce, boolean addLemon) {
+        this.name = name;
+        this.price = price;
+        this.addIce = addIce;
+        this.addLemon = addLemon;
+    }
+
+    public DrinkDTO(Long id, String name, double price, boolean addIce, boolean addLemon) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.addIce = addIce;
+        this.addLemon = addLemon;
+    }
+
     public Long getId() {
         return id;
     }
