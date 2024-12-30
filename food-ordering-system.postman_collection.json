@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "aa585404-e587-41a3-9643-9489b1e7fe5b",
+		"name": "food-ordering-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5092762"
+	},
+	"item": [
+		{
+			"name": "Cuisine",
+			"item": [
+				{
+					"name": "Create Cuisine",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Turkish\",\r\n    \"desc\": \"Traditional Turkish dishes and desserts.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cuisines",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cuisines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Cuisines",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cuisines",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cuisines"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Main Course",
+			"item": [
+				{
+					"name": "Create Main Course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lahmacun\",\r\n    \"price\": 8.99,\r\n    \"spicy\": true,\r\n    \"cuisineId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/main-courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"main-courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Main Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/main-courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"main-courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Main Courses By CuisineId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/main-courses/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"main-courses",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dessert",
+			"item": [
+				{
+					"name": "Create Dessert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Baklava\",\r\n    \"price\": 10.99,\r\n    \"flavor\": \"Sweet\",\r\n    \"cuisineId\": \"4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/desserts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"desserts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Desserts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/desserts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"desserts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Drink",
+			"item": [
+				{
+					"name": "Create Drink",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pepsi\",\r\n    \"price\": 1.99,\r\n    \"addIce\": true,\r\n    \"addLemon\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/drinks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"drinks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Drinks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/drinks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"drinks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Drink By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/drinks/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"drinks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dessertDTOs\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Pączki\",\r\n            \"price\": 3.5,\r\n            \"flavor\": \"Rose\",\r\n            \"cuisineId\": 1\r\n        }\r\n    ],\r\n    \"drinkDTOs\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Pączki\",\r\n            \"price\": 3.5,\r\n            \"flavor\": \"Rose\",\r\n            \"cuisineId\": 1\r\n        }\r\n    ],\r\n    \"mainCourseDTOs\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Bigos\",\r\n            \"price\": 12.49,\r\n            \"cuisineId\": 1,\r\n            \"spicy\": false\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
