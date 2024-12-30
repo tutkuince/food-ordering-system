@@ -1,14 +1,10 @@
 package com.incetutku.foodorderingsystem.mapper;
 
-import com.incetutku.foodorderingsystem.dto.DessertDTO;
-import com.incetutku.foodorderingsystem.dto.DrinkDTO;
-import com.incetutku.foodorderingsystem.dto.MainCourseDTO;
 import com.incetutku.foodorderingsystem.dto.OrderDTO;
 import com.incetutku.foodorderingsystem.entity.Order;
 
 import java.math.BigDecimal;
 import java.util.Collections;
-import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
