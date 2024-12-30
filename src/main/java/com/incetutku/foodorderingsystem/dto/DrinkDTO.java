@@ -84,7 +84,7 @@ public class DrinkDTO {
     public String toString() {
         return "DrinkDTO{" +
                 "name='" + name + '\'' +
-                ", price=" + price +
+                ", price=" + price + " PLN" +
                 ", addIce=" + addIce +
                 ", addLemon=" + addLemon +
                 '}';

@@ -85,7 +85,7 @@ public class MainCourseDTO {
         return "MainCourseDTO{" +
                 "name='" + name + '\'' +
                 "(isSpicy=" + spicy +
-                "), price=" + price +
+                "), price=" + price + " PLN" +
                 '}';
     }
 }

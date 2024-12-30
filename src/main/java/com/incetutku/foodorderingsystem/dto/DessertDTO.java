@@ -85,7 +85,7 @@ public class DessertDTO {
         return "DessertDTO{" +
                 "name='" + name + '\'' +
                 "(flavor='" + flavor + '\'' +
-                "), price=" + price +
+                "), price=" + price + " PLN" +
                 '}';
     }
 }

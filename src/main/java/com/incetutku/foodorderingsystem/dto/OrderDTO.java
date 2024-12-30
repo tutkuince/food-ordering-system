@@ -79,7 +79,7 @@ public class OrderDTO {
     public String toString() {
         return "Order{" +
                 "\n orderTime='" + orderTime + '\'' +
-                "\n totalPrice=" + totalPrice +
+                "\n totalPrice=" + totalPrice + " PLN" +
                 "\n mainCourses=" + mainCourseDTOs +
                 "\n desserts=" + dessertDTOs +
                 "\n drinks=" + drinkDTOs +
