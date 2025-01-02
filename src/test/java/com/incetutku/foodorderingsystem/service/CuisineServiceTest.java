@@ -84,7 +84,7 @@ class CuisineServiceTest {
         assertThat(cuisineById).isNotNull();
     }
 
-    @DisplayName("JUnit test for get cuisine by Id")
+    @DisplayName("JUnit test for get cuisine by Id - Throws Runtime Exception")
     @Test
     void givenNonExistingCuisineId_whenGetCuisineById_thenThrowsRuntimeException() {
         // given - precondition or setup
