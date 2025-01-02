@@ -2,6 +2,7 @@ package com.incetutku.foodorderingsystem.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -10,8 +11,8 @@ public class CuisineDTO {
     private long id;
     private String name;
     private String desc;
-    private Set<MainCourseDTO> mainCourseDTOS;
-    private Set<DessertDTO> dessertDTOS;
+    private Set<MainCourseDTO> mainCourseDTOS = new HashSet<>();
+    private Set<DessertDTO> dessertDTOS = new HashSet<>();
 
     public CuisineDTO() {
     }

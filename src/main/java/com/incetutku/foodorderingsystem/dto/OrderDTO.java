@@ -2,6 +2,7 @@ package com.incetutku.foodorderingsystem.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -10,9 +11,18 @@ public class OrderDTO {
     private Long id;
     private String orderTime;
     private double totalPrice;
-    private Set<DessertDTO> dessertDTOs;
-    private Set<DrinkDTO> drinkDTOs;
-    private Set<MainCourseDTO> mainCourseDTOs;
+    private Set<DessertDTO> dessertDTOs = new HashSet<>();
+    private Set<DrinkDTO> drinkDTOs = new HashSet<>();
+    private Set<MainCourseDTO> mainCourseDTOs = new HashSet<>();
+
+    public OrderDTO() {
+    }
+
+    public OrderDTO(Set<DessertDTO> dessertDTOs, Set<DrinkDTO> drinkDTOs, Set<MainCourseDTO> mainCourseDTOs) {
+        this.dessertDTOs = dessertDTOs;
+        this.drinkDTOs = drinkDTOs;
+        this.mainCourseDTOs = mainCourseDTOs;
+    }
 
     public Long getId() {
         return id;
