@@ -31,21 +31,15 @@ public class OrderServiceImpl implements OrderService {
         totalPrice = totalPrice.add(setDrinkPrice(orderDTO));
         totalPrice = totalPrice.add(setMainCoursePrice(orderDTO));
 
-        Order savableOrder = OrderMapper.mapToOrder(orderDTO);
-        savableOrder.setTotalPrice(totalPrice);
-        Order savedOrder = orderRepository.save(savableOrder);
+        if ((!orderDTO.getMainCourseDTOs().isEmpty() && !orderDTO.getDessertDTOs().isEmpty()) || !orderDTO.getDrinkDTOs().isEmpty()) {
+            orderDTO.setTotalPrice(totalPrice.doubleValue());
+            Order savableOrder = OrderMapper.mapToOrder(orderDTO);
 
-        return OrderMapper.mapToOrderDTO(savedOrder);
-    }
+            Order savedOrder = orderRepository.save(savableOrder);
 
-    @Override
-    public OrderDTO getOrderById(Long id) {
-        return null;
-    }
-
-    @Override
-    public List<OrderDTO> getAllOrders() {
-        return List.of();
+            return OrderMapper.mapToOrderDTO(savedOrder);
+        }
+        throw new RuntimeException("Please add a product before viewing the order result.");
     }
 
     private BigDecimal setDessertPrice(OrderDTO orderDTO) {
