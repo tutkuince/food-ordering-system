@@ -16,7 +16,7 @@ public class OrderMapper {
     public static Order mapToOrder(OrderDTO orderDTO) {
         Order order = new Order();
         order.setId(orderDTO.getId());
-        order.setTotalPrice(BigDecimal.ZERO);
+        order.setTotalPrice(BigDecimal.valueOf(orderDTO.getTotalPrice()));
         order.setDesserts(mapCollection(orderDTO.getDessertDTOs(), DessertMapper::mapToDessert));
         order.setDrinks(mapCollection(orderDTO.getDrinkDTOs(), DrinkMapper::mapToDrink));
         order.setMainCourses(mapCollection(orderDTO.getMainCourseDTOs(), MainCourseMapper::mapToMainCourse));
